@@ -1,0 +1,5 @@
+# Python virtual environment default folder
+ocrenv/
+
+# Test images folder
+images/
