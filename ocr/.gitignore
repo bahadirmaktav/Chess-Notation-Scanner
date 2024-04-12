@@ -3,3 +3,6 @@ ocrenv/
 
 # Test images folder
 images/
+
+# Python spesific
+*/__pycache__
