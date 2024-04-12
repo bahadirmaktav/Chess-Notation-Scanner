@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
-import tensorflow as tf
 import pandas as pd
 import numpy as np
-import cv2
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from keras.utils import to_categorical
 from keras.models import Sequential
