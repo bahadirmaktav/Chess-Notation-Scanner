@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
+import 'package:chess_notation_scanner_app/pages/navbar_page_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:chess_notation_scanner_app/pages/home_page.dart';
 
 // TODO(MBM): Define camera declarations and initialization in camera page.
 late List<CameraDescription> cameras;
@@ -17,7 +17,7 @@ class ChessNotationScannerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Chess Notation Scanner',
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: NavbarPageWidget(),
     );
   }
 }
