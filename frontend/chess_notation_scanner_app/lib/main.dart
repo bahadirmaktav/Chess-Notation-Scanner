@@ -1,7 +1,13 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:chess_notation_scanner_app/pages/home_page.dart';
 
-void main() {
+// TODO(MBM): Define camera declarations and initialization in camera page.
+late List<CameraDescription> cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(const ChessNotationScannerApp());
 }
 

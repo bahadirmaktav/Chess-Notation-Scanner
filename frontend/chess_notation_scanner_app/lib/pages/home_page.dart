@@ -1,3 +1,4 @@
+import 'package:chess_notation_scanner_app/pages/camera_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -40,7 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const CameraPage()));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
