@@ -15,7 +15,6 @@ class ScanPageWidget extends StatefulWidget {
 
 class _ScanPageWidgetState extends State<ScanPageWidget> {
   late ScanPageModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

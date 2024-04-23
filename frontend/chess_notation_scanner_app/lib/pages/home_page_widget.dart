@@ -14,7 +14,6 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

@@ -18,7 +18,10 @@ class CameraPageWidget extends StatefulWidget {
 class _CameraPageWidgetState extends State<CameraPageWidget> {
   late CameraPageModel _model;
   late CameraController _controller;
-
+  late double _selectionBoxHeight;
+  late double _selectionBoxWidth;
+  final double _selectionBoxWidthRatio = 0.7;
+  final double _selectionBoxRatio = 1.5;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -54,6 +57,11 @@ class _CameraPageWidgetState extends State<CameraPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    _selectionBoxWidth =
+        MediaQuery.of(context).size.width * _selectionBoxWidthRatio;
+    _selectionBoxHeight = _selectionBoxWidth * _selectionBoxRatio;
+    print("screen width ${MediaQuery.of(context).size.width}");
+    print("screen height ${MediaQuery.of(context).size.height}");
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -103,10 +111,12 @@ class _CameraPageWidgetState extends State<CameraPageWidget> {
                     try {
                       await _controller.setFlashMode(FlashMode.auto);
                       XFile file = await _controller.takePicture();
+                      print(file.path);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ImagePageWidget(file)));
+                              builder: (context) => ImagePageWidget(file,
+                                  _selectionBoxHeight, _selectionBoxWidth)));
                     } on CameraException catch (e) {
                       debugPrint("Error occured while taking picture : $e");
                       return;
@@ -115,10 +125,10 @@ class _CameraPageWidgetState extends State<CameraPageWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, -0.4),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Container(
-                  width: 215.0,
-                  height: 366.0,
+                  width: _selectionBoxWidth,
+                  height: _selectionBoxHeight,
                   decoration: BoxDecoration(
                     color: const Color(0x00FFFFFF),
                     border: Border.all(

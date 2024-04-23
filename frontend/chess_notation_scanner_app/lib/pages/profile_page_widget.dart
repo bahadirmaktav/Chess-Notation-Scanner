@@ -14,7 +14,6 @@ class ProfilePageWidget extends StatefulWidget {
 
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   late ProfilePageModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
